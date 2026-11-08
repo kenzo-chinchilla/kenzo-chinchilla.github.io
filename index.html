@@ -62,6 +62,9 @@ article.project{border-top:1px solid var(--line);padding:48px 0;display:grid;gri
 .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:28px}
 .gallery figure{margin:0}
 .gallery figcaption{font-size:13px;color:var(--muted);margin-top:6px}
+figure.video{margin:0 0 28px}
+figure.video video{width:100%;border-radius:3px;background:var(--tag);display:block}
+figure.video figcaption{font-size:13px;color:var(--muted);margin-top:6px}
 .detail h4{font:600 18px/1.3 var(--body);margin:24px 0 6px}
 .detail p{margin:0;max-width:68ch}
 
@@ -168,11 +171,15 @@ footer{padding:28px 0;border-top:1px solid var(--line);font-size:14px;color:var(
       <div class="meta">
         <h3>Drone Detection with Computer Vision</h3>
         <ul class="tools"><li>Python</li><li>YOLO</li></ul>
+        <a class="repo" href="https://github.com/kenzo-chinchilla">View code on GitHub</a>
       </div>
       <div class="detail">
-        <div class="gallery">
-          <figure><div class="slot"><img src="assets/drone-detection.jpg" alt="Drone detected with a bounding box" onerror="this.replaceWith('Add assets/drone-detection.jpg')"></div><figcaption>Detection example</figcaption></figure>
-        </div>
+        <figure class="video">
+          <video src="assets/drone-demo.mp4" poster="assets/drone-detection.jpg" autoplay muted loop playsinline controls preload="metadata" aria-label="YOLO model detecting a drone with a bounding box in real footage">
+            Your browser can’t play this video.
+          </video>
+          <figcaption>The trained model tracking a drone in footage it hadn’t seen during training.</figcaption>
+        </figure>
         <h4>What I built</h4>
         <p>I trained a YOLO object-detection model on labeled drone images to locate drones with bounding boxes, then tested it on footage it hadn’t seen.</p>
       </div>
@@ -184,7 +191,7 @@ footer{padding:28px 0;border-top:1px solid var(--line);font-size:14px;color:var(
   <div class="wrap about-grid">
     <div>
       <h2 class="section">About</h2>
-      <p>I’m an Electrical Engineering student at Northeastern University (expected Grad year: 2029) and project manager of the engineering club at Northeastern Oakland. I design and build my own hardware, and I’m currently expanding my skills in C, MATLAB, and Verilog. I’m looking for a Summer 2027 internship in embedded systems, electronics, or sensor hardware.</p>
+      <p>I’m a first-year Electrical Engineering student at Northeastern University (Class of 2029) and project manager of the engineering club at Northeastern Oakland. I design and build my own hardware, and I’m currently expanding my skills in C, MATLAB, and Verilog. I’m looking for a Summer 2027 internship in embedded systems, electronics, or sensor hardware.</p>
     </div>
     <dl>
       <dt>Email</dt><dd><a href="mailto:chinchilla.k@northeastern.edu">chinchilla.k@northeastern.edu</a></dd>
