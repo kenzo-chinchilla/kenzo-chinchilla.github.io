@@ -51,8 +51,8 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--copper);outline-off
 
 /* Projects */
 section.projects{padding:80px 0 40px}
-h2.section{font:700 34px/1.1 var(--display);font-stretch:85%;margin:0 0 8px}
-p.intro{color:var(--muted);margin:0 0 48px;max-width:60ch}
+h2.section{font:700 34px/1.1 var(--display);font-stretch:85%;margin:0 0 24px}
+
 article.project{border-top:1px solid var(--line);padding:48px 0;display:grid;grid-template-columns:280px 1fr;gap:40px}
 .meta h3{font:700 28px/1.1 var(--display);font-stretch:85%;margin:0 0 12px}
 .status{display:inline-block;font-size:13px;font-weight:600;color:var(--copper);margin-bottom:12px}
@@ -64,7 +64,6 @@ article.project{border-top:1px solid var(--line);padding:48px 0;display:grid;gri
 .gallery figcaption{font-size:13px;color:var(--muted);margin-top:6px}
 .detail h4{font:600 18px/1.3 var(--body);margin:24px 0 6px}
 .detail p{margin:0;max-width:68ch}
-.todo{background:var(--tag);border-left:3px solid var(--copper);padding:8px 12px;font-size:15px;color:var(--muted)}
 
 /* About */
 section.about{padding:64px 0 96px;border-top:1px solid var(--line)}
@@ -94,7 +93,7 @@ footer{padding:28px 0;border-top:1px solid var(--line);font-size:14px;color:var(
   <div class="wrap hero-inner">
     <div>
       <h1>Kenzo Chinchilla</h1>
-      <p class="lead">Electrical engineering student at Northeastern University. I design circuit boards, solder them by hand, and debug them until they work.</p>
+      <p class="lead">Electrical engineering student at Northeastern University, driven to build hardware that works in the real world. I take designs from schematic to a finished, tested board, and I’m pushing deeper into embedded systems and signal processing.</p>
       <nav aria-label="Links">
         <a class="btn solid" href="#projects">See projects</a>
         <a class="btn" href="Kenzo_Chinchilla_Resume.pdf">Résumé (PDF)</a>
@@ -113,7 +112,6 @@ footer{padding:28px 0;border-top:1px solid var(--line);font-size:14px;color:var(
 <section class="projects" id="projects">
   <div class="wrap">
     <h2 class="section">Projects</h2>
-    <p class="intro">Each project covers what I built, the decisions behind it, and what went wrong along the way.</p>
 
     <!-- SpO2 -->
     <article class="project" id="spo2">
@@ -132,30 +130,8 @@ footer{padding:28px 0;border-top:1px solid var(--line);font-size:14px;color:var(
         <p>A handheld pulse oximeter on a custom PCB. An Arduino Nano reads red and infrared light measurements from a MAX30102 optical sensor over I2C, calculates blood-oxygen saturation and heart rate, and shows the results in real time on an OLED display.</p>
         <h4>How I designed it</h4>
         <p>I took the board from schematic capture through component placement and trace routing in KiCad. Some parts weren’t in the standard libraries, so I created custom footprints for them, then generated Gerber files to have the board fabricated.</p>
-        <h4>What went wrong and how I fixed it</h4>
-        <p class="todo">Write 2–4 sentences about a real problem you hit (a footprint, a solder joint, bad readings) and how you tracked it down. This is the section recruiters read most closely.</p>
         <h4>Result</h4>
         <p>I hand-soldered every component, then tested and debugged the assembled board into a fully working device.</p>
-      </div>
-    </article>
-
-    <!-- Macro keyboard -->
-    <article class="project" id="macro">
-      <div class="meta">
-        <h3>Custom Macro Keyboard PCB</h3>
-        <ul class="tools"><li>KiCad</li><li>PCB design</li><li>Soldering</li></ul>
-        <a class="repo" href="https://github.com/kenzo-chinchilla">View files on GitHub</a>
-      </div>
-      <div class="detail">
-        <div class="gallery">
-          <figure><div class="slot"><img src="assets/macro-layout.png" alt="KiCad layout of the macro keyboard" onerror="this.replaceWith('Add assets/macro-layout.png')"></div><figcaption>PCB layout</figcaption></figure>
-          <figure><div class="slot"><img src="assets/macro-assembly.jpg" alt="Macro keyboard during soldering" onerror="this.replaceWith('Add assets/macro-assembly.jpg')"></div><figcaption>Assembly</figcaption></figure>
-          <figure><div class="slot"><img src="assets/macro-finished.jpg" alt="Finished macro keyboard" onerror="this.replaceWith('Add assets/macro-finished.jpg')"></div><figcaption>Finished board</figcaption></figure>
-        </div>
-        <h4>What I built</h4>
-        <p>A programmable macro keyboard on a PCB I designed. I laid out the schematic and board, routed each key switch to the microcontroller, then hand-soldered the switches and components and tested every key.</p>
-        <h4>What went wrong and how I fixed it</h4>
-        <p class="todo">Add the microcontroller, number of keys, any firmware you used, and one problem you solved.</p>
       </div>
     </article>
 
@@ -171,7 +147,6 @@ footer{padding:28px 0;border-top:1px solid var(--line);font-size:14px;color:var(
         <p>Simulate a 77 GHz FMCW radar that detects and tracks up to five moving targets. The simulator generates linear chirps (150 MHz bandwidth, 128 chirps per frame) and models echoes with propagation delay, Doppler shift, and noise.</p>
         <h4>Processing pipeline</h4>
         <p>Range and Doppler FFTs produce a range-Doppler map, 2D CA-CFAR picks out real targets from the noise floor, and a Kalman filter tracks each target across frames. Performance will be compared across SNRs from −10 to 20 dB.</p>
-        <p class="todo">Post progress screenshots here as you go (your first range FFT plot, then the range-Doppler map).</p>
       </div>
     </article>
 
@@ -185,7 +160,6 @@ footer{padding:28px 0;border-top:1px solid var(--line);font-size:14px;color:var(
       <div class="detail">
         <h4>Goal</h4>
         <p>An RTL radar processor that takes in 12-bit samples at 10 MHz, filters noise with a 16-tap fixed-point FIR filter, and detects echoes from up to three targets using threshold and peak detection, then converts echo delay into range (15 m per sample).</p>
-        <p class="todo">Add GTKWave screenshots of your testbench waveforms as modules come together.</p>
       </div>
     </article>
 
@@ -210,7 +184,7 @@ footer{padding:28px 0;border-top:1px solid var(--line);font-size:14px;color:var(
   <div class="wrap about-grid">
     <div>
       <h2 class="section">About</h2>
-      <p>I’m a first-year Electrical Engineering student at Northeastern University (Class of 2030) and project manager of the engineering club at Northeastern Oakland. I got hooked on radar through MIT Lincoln Laboratory’s LLRISE program, and I’m looking for a Summer 2027 internship in embedded systems, electronics, or sensor hardware.</p>
+      <p>I’m a first-year Electrical Engineering student at Northeastern University (Class of 2029) and project manager of the engineering club at Northeastern Oakland. I design and build my own hardware, and I’m currently expanding my skills in C, MATLAB, and Verilog. I’m looking for a Summer 2027 internship in embedded systems, electronics, or sensor hardware.</p>
     </div>
     <dl>
       <dt>Email</dt><dd><a href="mailto:chinchilla.k@northeastern.edu">chinchilla.k@northeastern.edu</a></dd>
